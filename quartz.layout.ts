@@ -6,7 +6,17 @@ import MyImage from "./quartz/components/MyImage"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "YOUR_USERNAME/YOUR_REPOSITORY_NAME",
+        repoId: "YOUR_REPO_ID",
+        category: "Announcements", // Or whatever category you chose in Giscus
+        categoryId: "YOUR_CATEGORY_ID",
+      },
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
