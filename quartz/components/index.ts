@@ -25,7 +25,6 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 
 export {
-  MyImage,
   ArticleTitle,
   Content,
   TagContent,

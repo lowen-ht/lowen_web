@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import MyImage from "./quartz/components/MyImage"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -41,7 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.MyImage(),
+    MyImage(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
