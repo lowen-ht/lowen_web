@@ -7,3 +7,4 @@ title: Literature
 This is the directory for Literature.
 
 - [[冷笑话]]
+- [[Exit]]
