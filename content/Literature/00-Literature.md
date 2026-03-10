@@ -1,5 +1,6 @@
 ---
 title: Literature
+description:
 ---
 
 # 阅读，杂谈与冷笑话
@@ -7,4 +8,4 @@ title: Literature
 This is the directory for Literature.
 
 - [[冷笑话]]
-- [[Exit]]
+- [[Exit：L'enfer, c'est les autres]]

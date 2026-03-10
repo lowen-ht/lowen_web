@@ -6,7 +6,7 @@ title: Home
 
 ### Directory
 
-- [[Math]]
-- [[Literature]]
-- [[Ops]]
-- [[CS]]
+- [[00-Math]]
+- [[00-Literature]]
+- [[00-Ops]]
+- [[00-CS]]
