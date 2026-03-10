@@ -1,12 +1,12 @@
 ---
-title: 首页
+title: Home
 ---
 
-欢迎来到我的个人主页。
+“Our carriers are moving toward Tokyo… at the bottom of the sea.”
 
-在这里，你可以找到关于不同主题的笔记和文章。
+### Directory
 
-- [[数学/]]
-- [[文学/]]
-- [[运维/]]
-- [[CS/]]
+- [[Math]]
+- [[Literature]]
+- [[Ops]]
+- [[CS]]
