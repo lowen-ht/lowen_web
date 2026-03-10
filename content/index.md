@@ -1,6 +1,12 @@
 ---
-title: Welcome to Quartz
+title: 首页
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+欢迎来到我的个人主页。
+
+在这里，你可以找到关于不同主题的笔记和文章。
+
+- [[数学/]]
+- [[文学/]]
+- [[运维/]]
+- [[CS/]]
