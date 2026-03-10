@@ -10,10 +10,10 @@ export const sharedPageComponents: SharedLayout = {
     Component.Comments({
       provider: "giscus",
       options: {
-        repo: "YOUR_USERNAME/YOUR_REPOSITORY_NAME",
-        repoId: "YOUR_REPO_ID",
-        category: "Announcements", // Or whatever category you chose in Giscus
-        categoryId: "YOUR_CATEGORY_ID",
+        repo: "lowen-ht/lowen_web",
+        repoId: "R_kgDORjCHrQ",
+        category: "Announcements",
+        categoryId: "DIC_kwDORjCHrc4C4Ggt",
       },
     }),
   ],
