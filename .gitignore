@@ -10,3 +10,14 @@ private/
 .replit
 replit.nix
 /public
+
+# --- 研究代码与本地数据：不纳入 Git，也不被 Quartz 静态发布 ---
+# Quartz 构建使用 globby({ gitignore: true })，因此 .gitignore 同时保护仓库与站点产物；
+# quartz.config.ts 的 ignorePatterns 另设独立兜底，避免 .gitignore 被误改时泄漏代码。
+content/Investment/code/
+content/**/code/
+**/__pycache__/
+*.py[cod]
+.venv/
+**/.env
+**/.env.*

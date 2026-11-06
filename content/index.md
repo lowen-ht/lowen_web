@@ -10,3 +10,4 @@ title: Home
 - [[00-Literature]]
 - [[00-Ops]]
 - [[00-CS]]
+- [[00-Investment]]
