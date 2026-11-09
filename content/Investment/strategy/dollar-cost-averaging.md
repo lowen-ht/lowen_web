@@ -15,7 +15,7 @@ tags: [investment, strategy]
 
 ## 适合什么
 
-- 高波动、长期向上的资产：**NVDA、黄金**都适合用定投降低择时风险。
+- 高波动、长期向上的资产：**NVDA、黄金**都适合用[[investment-knowledge-base#定投|定投]]降低择时风险。
 - 工薪族用工资结余分批建仓，体验更平稳。
 
 ## 定投 vs 一次性投入
@@ -26,7 +26,7 @@ tags: [investment, strategy]
 ## 实操要点
 
 - 设自动计划（IBKR 支持周期性投资 / 定期买）。
-- 结合 [[risk-management]] 的仓位上限，避免定投过度集中单一标的。
+- 结合 [[risk-management]] 的[[investment-knowledge-base#多头与仓位|仓位]]上限，避免定投过度集中单一标的。
 - 定期检视，但不要频繁更改计划。
 
 ## 延伸阅读

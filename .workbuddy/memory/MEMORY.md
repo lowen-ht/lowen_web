@@ -21,3 +21,11 @@
 - 回测是证据不是开仓许可：walk-forward + purge/embargo + 交易成本 + Deflated Sharpe / PBO；本次实测 DSR 0.566 不显著，**未找到可执行策略**。
 - 站内 `strategy/earnings-drift-strategy.md` 的 8 次财报实测（naive 信号一次未触发、多数反转）是重要负面实证，任何「跟随巨轮」直觉先按反证处理。
 - 板块 beta 残差归因优先于公司层面找理由；|残差| < 2% 时视为系统性波动。
+
+## 术语知识库与链接约定（2026-11-06 起）
+- `content/Investment/investment-knowledge-base.md` 是**全站唯一术语源**（10 类 153 条），必须发布；新增词条用 `### 词条名` + `**别名**：...` 两行，再 `python code/link_terms.py` 即可为全站补链接。
+- 链接形式 `[[investment-knowledge-base#<标题原文>|<原文>]]`：**anchor 直接写标题原文**，Quartz 的 `splitAnchor()` 与 `rehype-slug` 都用 github-slugger，会自动对齐；不要手工算 slug。表格内 alias 分隔符用 `\|`（兼容 Obsidian 与 GitHub 源码阅读）。
+- `code/link_terms.py` 幂等：默认每文件每术语仅首次出现加链接，作用域默认 `Investment/` + `Finance/`（不含 CS/Math/Ops，避免同名数学词误链）。`--unlink` 可整体撤销后重建；`--all` 改为每处；`--scope all` 扩到全站。
+- **程序生成的文件会丢链接**：`report.py` / `review.py` / `predict.py` 重建 daily/events/sessions，因此 `run_daily.py` 末尾与每日自动化【4.5】都必须在所有写入完成后调用 `link_terms.py`。
+- 别名必须避免过泛词（「波动」「分布」「融资」「风控」「配置」「分配」「收益率」曾造成误链）；新增别名后用 `--dry-run` 抽查短词匹配再正式写入。
+- **机器可读行整行豁免（2026-11-06 修）**：`link_terms.py` 的 `RULE_ROW_RE` 跳过形如 `- [L-xxx]` 的规则行，禁止在其中插入任何链接。教训：知识库「政策状态机」别名 `status` 曾把 L-001 的 `status=active` 改写成 wikilink，使 `predict.py` 静默只读到 5/6 条 ACTIVE 规则（漏掉 `overrides=`）。**文档美化不得改变程序按字面解析的语法标记**；每轮用 `read_lessons_or_die()` 与冻结记录的 active_rules 做集合比对，这是必做的验收项。

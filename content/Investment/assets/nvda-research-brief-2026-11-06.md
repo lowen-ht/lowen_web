@@ -6,50 +6,50 @@ tags: [investment, nvda, research, brief]
 # NVDA 研究简报 · 试运行（截至 2026-11-06）
 
 > **这是什么**：应「先看成效、再做完整版」的要求，本文件是**一次自主收集 + 分析的试运行样本**，不是完整研究体系，也不是投资建议。
-> **数据截点**：美股最近一个完整交易日为 **2026-11-05（周三）收盘**；撰稿时（北京时间 11-06 17:15 ≈ 美东 11-06 04:15 EST）**11-06 常规交易尚未开盘**，文中"11-06"数据为亚洲时段/盘前快照。
-> **来源分级**：`A` 官方一手（NVIDIA IR / SEC / Fed / NVIDIA 官网）；`B` 权威媒体与通讯社（新华社、中国金融新闻网、财联社、Reuters/AP 转述、China Daily、CGTN）；`C` 第三方数据站与自媒体（需交叉验证，已在文中标注）。
-> **口径纪律**：凡多源数字冲突，一律并列展示并注明时点/口径，不做静默取舍。
+> **[[investment-knowledge-base#point-in-time|数据截点]]**：美股最近一个完整交易日为 **2026-11-05（周三）收盘**；撰稿时（北京时间 11-06 17:15 ≈ 美东 11-06 04:15 [[investment-knowledge-base#EST 与 EDT|EST]]）**11-06 常规交易尚未开盘**，文中"11-06"数据为亚洲时段/[[investment-knowledge-base#盘前盘后交易|盘前]]快照。
+> **[[investment-knowledge-base#来源分级|来源分级]]**：`A` 官方一手（NVIDIA IR / SEC / Fed / NVIDIA 官网）；`B` 权威媒体与通讯社（新华社、中国金融新闻网、财联社、Reuters/AP 转述、China Daily、CGTN）；`C` 第三方数据站与自媒体（需交叉验证，已在文中标注）。
+> **[[investment-knowledge-base#口径元数据|口径]]纪律**：凡多源数字冲突，一律并列展示并注明时点/口径，不做静默取舍。
 
 ---
 
 ## 0. 结论先行
 
-1. **11-05 的 −9.26% 是系统性去风险，不是 NVDA 公司层面的利空**。同日费城半导体指数 −12.25%（2020-03 以来最大单日跌幅）、AMD −17.26%、美光 −17.46%、纳指 −5.52%、VIX 升至 28.18。NVDA 无公司特定负面消息，跌幅小于多数半导体同业 → 这是「AI 基建因子」被整体重定价，而非个股基本面断裂。`B`
-2. **现有笔记的归因方向正确，但需从"单一政治因果"升级为"四层结构"**：政治结果是**触发层**，通过数据中心审批/电力传导到 GPU 交付节奏，再由拥挤仓位、对冲基金去杠杆与负 Gamma **放大**，最后落在早已脆弱的**估值/现金流叙事**上。仅写"民主党限制 AI → 失去信心"会漏掉可交易的变量。
+1. **11-05 的 −9.26% 是系统性去风险，不是 NVDA 公司层面的利空**。同日[[investment-knowledge-base#费城半导体指数|费城半导体指数]] −12.25%（2020-03 以来最大单日跌幅）、AMD −17.26%、美光 −17.46%、纳指 −5.52%、[[investment-knowledge-base#VIX|VIX]] 升至 28.18。NVDA 无公司特定负面消息，跌幅小于多数半导体同业 → 这是「AI 基建因子」被整体重定价，而非个股基本面断裂。`B`
+2. **现有笔记的归因方向正确，但需从"单一政治因果"升级为"四层结构"**：政治结果是**触发层**，通过[[investment-knowledge-base#数据中心|数据中心]]审批/电力传导到 GPU 交付节奏，再由[[investment-knowledge-base#拥挤交易|拥挤仓位]]、对冲基金去杠杆与[[investment-knowledge-base#负 Gamma|负 Gamma]] **放大**，最后落在早已脆弱的**估值/现金流叙事**上。仅写"民主党限制 AI → 失去信心"会漏掉可交易的变量。
 3. **关键区分：目前是"政策预期"，不是"已落地政策"**。截至 11-06，强监管来自议员表态、候任州长呼吁与地方公投，**尚无联邦立法**；新国会 **2027-01-03** 才就职，且总统保留否决权与行政权。多位分析人士判断「调查与监督优先于立法」。`B`
-4. **需求侧的一手证据仍强，且尚未被推翻**：四大 CSP 2026Q3 资本开支合计约 $1,850–2,087 亿（口径不同），同比 +84%~90%；四家均给出 2027 年继续扩张的指引；NVDA Q2 FY2027 营收 $962 亿（+106% YoY），Q3 指引 $1,080 亿。**当前定价的是"2027 年 capex 的可持续性折现率上升"，不是"当期订单取消"**。`A` `B`
-5. **未来 3 个月的两个硬节点**：**2026-11-17 Q3 FY2027 财报**（官方确认）与 **2027-01-03 新国会就职**；中间夹着 **11-30~12-03 GTC Washington D.C.（政策主题）** 与 **12-08~09 FOMC + 点阵图**。
-6. **数据驱动的第一条纪律：不要直接引用媒体的"前瞻市盈率"**。本次检索到 12.9x / 16.5x / 16.6x / 21.5x 四个互斥数字，差异源于财年口径、NTM 与单一财年、EPS 来源与价格时点（详见 §4.3）。统一口径后自算结果为 **FY2027 约 19.5x、FY2028 约 11.4x**（按 11-05 收盘 $181.60）。
+4. **需求侧的一手证据仍强，且尚未被推翻**：[[investment-knowledge-base#CSP|四大 CSP]] 2026Q3 [[investment-knowledge-base#资本开支|资本开支]]合计约 $1,850–2,087 亿（口径不同），同比 +84%~90%；四家均给出 2027 年继续扩张的指引；NVDA Q2 [[investment-knowledge-base#财年|FY2027]] 营收 $962 亿（+106% YoY），Q3 指引 $1,080 亿。**当前定价的是"2027 年 capex 的可持续性[[investment-knowledge-base#贴现率|折现率]]上升"，不是"当期订单取消"**。`A` `B`
+5. **未来 3 个月的两个硬节点**：**2026-11-17 [[investment-knowledge-base#财报|Q3 FY2027 财报]]**（官方确认）与 **2027-01-03 新国会就职**；中间夹着 **11-30~12-03 [[investment-knowledge-base#GTC|GTC Washington]] D.C.（政策主题）** 与 **12-08~09 [[investment-knowledge-base#FOMC|FOMC]] + [[investment-knowledge-base#点阵图|点阵图]]**。
+6. **数据驱动的第一条纪律：不要直接引用媒体的"[[investment-knowledge-base#前瞻市盈率|前瞻市盈率]]"**。本次检索到 12.9x / 16.5x / 16.6x / 21.5x 四个互斥数字，差异源于财年口径、[[investment-knowledge-base#NTM|NTM]] 与单一财年、[[investment-knowledge-base#每股收益|EPS]] 来源与价格时点（详见 §4.3）。统一口径后自算结果为 **FY2027 约 19.5x、FY2028 约 11.4x**（按 11-05 收盘 $181.60）。
 
 ---
 
 ## 1. 事实核验：对现有笔记的校正
 
-现有 `[[nvda-analysis]]` 末尾手写记录："*11.5变化 / NVDA大跌，原因是美国中期选举民主党大获全胜，民主党可能会限制AI发展，故人们失去信心*"。核验结果：
+现有 `[[nvda-analysis]]` 末尾手写记录："*11.5变化 / NVDA大跌，原因是[[investment-knowledge-base#中期选举|美国中期选举]]民主党大获全胜，民主党可能会限制AI发展，故人们失去信心*"。核验结果：
 
 | 原记录 | 核验结论 | 建议修正表述 |
 |---|---|---|
 | "即将发生的大选" | **已发生**。投票日 2026-11-03，民主党夺回参众两院。AP 计票（美东 11-04 22:28）：参议院 **54:44**、众议院 **240:147**；更早时点报道为众议院 224:133 + 78 席未定，属**计票时点差异**，非矛盾。`B` | "大选"应从**待发生事件**移入**已发生事件**；未来节点改为 2027-01-03 新国会就职与后续立法/听证 |
-| "NVDA 大跌" | 准确但**不完整**。11-05 收 **$181.60，−9.26%**，成交额 **$566.87 亿**，单日市值蒸发约 **$4,466–4,470 亿**（史上第二大），较 10-06 峰值回撤 **−24.1%（最高收盘口径）/ −25.4%（盘中最高 $243.37 口径）**，正式进入技术性熊市。`B` | 补充"全板块"与"技术性熊市"两个限定 |
-| "民主党可能会限制 AI 发展" | **方向对，层级需拆开**。可核实的是：亚利桑那州联邦众议员 Yassamin Ansari 称下届国会头号要务是暂停先进 AI 开发、实施监管并禁止"超级人工智能"；得州候任州长呼吁冻结新建数据中心（得州约占美国计划数据中心容量 **27%**）；某 tracker 称 39 项已决地方数据中心议案中 38 项限制开发（**二手来源，待核**）。`B` `C` | "表态/呼吁/地方议案" ≠ "法律"；传导路径是**审批与电力 → 交付时点**，而非需求立即消失 |
-| "故人们失去信心" | **遗漏了同等重要的三条**：① AI capex 与自由现金流背离（谷歌/Meta/亚马逊 Q3 FCF 净流出）；② 循环融资与 $2,790 亿供应承诺带来的资产负债表疑虑；③ 高杠杆对冲基金去杠杆、负 Gamma 放大。`B` `C` | 用四层因果（§2）替代单一情绪解释 |
+| "NVDA 大跌" | 准确但**不完整**。11-05 收 **$181.60，−9.26%**，成交额 **$566.87 亿**，单日[[investment-knowledge-base#市值\|市值]]蒸发约 **$4,466–4,470 亿**（史上第二大），较 10-06 [[investment-knowledge-base#最大回撤\|峰值回撤]] **−24.1%（最高收盘口径）/ −25.4%（盘中最高 $243.37 口径）**，正式进入技术性熊市。`B` | 补充"全板块"与"技术性熊市"两个限定 |
+| "民主党可能会限制 AI 发展" | **方向对，层级需拆开**。可核实的是：亚利桑那州联邦众议员 Yassamin Ansari 称下届国会头号要务是暂停先进 AI 开发、实施监管并禁止"超级人工智能"；得州候任州长呼吁[[investment-knowledge-base#预测冻结\|冻结]]新建数据中心（得州约占美国计划数据中心容量 **27%**）；某 tracker 称 39 项已决地方数据中心议案中 38 项限制开发（**二手来源，待核**）。`B` `C` | "表态/呼吁/地方议案" ≠ "法律"；传导路径是**审批与电力 → 交付时点**，而非需求立即消失 |
+| "故人们失去信心" | **遗漏了同等重要的三条**：① AI capex 与[[investment-knowledge-base#自由现金流\|自由现金流]]背离（谷歌/Meta/亚马逊 Q3 FCF 净流出）；② [[investment-knowledge-base#循环融资\|循环融资]]与 $2,790 亿[[investment-knowledge-base#供应承诺\|供应承诺]]带来的资产负债表疑虑；③ 高杠杆对冲基金去杠杆、负 Gamma 放大。`B` `C` | 用四层因果（§2）替代单一情绪解释 |
 
-**另一个必须记录的口径陷阱**：同为 11-05，不同来源给出 −9.26%（收盘）、−9.18%（另一媒体收盘）、−7.3%（盘中）、−6.94%/ $186.24（盘中）、−9.06%/ $183.04（15:34 盘中）。**只有 $181.60 / −9.26% 是收盘值**，其余为盘中快照。做量化回测时误用盘中价会污染事件收益。`B` `C`
+**另一个必须记录的口径陷阱**：同为 11-05，不同来源给出 −9.26%（收盘）、−9.18%（另一媒体收盘）、−7.3%（盘中）、−6.94%/ $186.24（盘中）、−9.06%/ $183.04（15:34 盘中）。**只有 $181.60 / −9.26% 是收盘值**，其余为盘中快照。做量化[[investment-knowledge-base#回测|回测]]时误用盘中价会污染事件收益。`B` `C`
 
 ---
 
 ## 2. 因果分层：为什么是 −9.26% 而不是 −3%
 
-| 层级 | 内容 | 对 NVDA 的传导路径 | 可证伪条件 / 观察指标 |
+| 层级 | 内容 | 对 NVDA 的传导路径 | [[investment-knowledge-base#可证伪条件\|可证伪条件]] / 观察指标 |
 |---|---|---|---|
-| **L1 触发（政治事实）** | 民主党控制两院；得州州长与参议员翻蓝；强监管表态密集出现 | 无直接财务影响，改变的是**政策概率分布** | 新国会委员会主席人选、听证日程、是否出现正式法案文本 |
-| **L2 传导（物理约束）** | 得州占计划数据中心容量约 27%；地方审批、电网接入、变压器/冷却交付周期长 | **GPU 交付与收入确认时点后移**，而非订单取消；NVDA 已在 10-Q 风险披露中提示"电力短缺、融资限制、监管障碍可能延迟客户部署"`A` | 四大 CSP 季度 capex 中"递延交付"表述、backlog 转化、DSX POD 交付节奏 |
-| **L3 放大（市场结构）** | 拥挤的 AI 多头 + 高杠杆对冲基金风险限额 + 净 GEX 约 −95.3M（负 Gamma，做市商跌时卖出涨时买入）+ 纳指跌破 200 日均线 | 强制去杠杆使跌幅远大于基本面冲击；VIX 28.18 | VIX 回落速度、GEX 转正、ETF 资金流、板块相对强弱（NVDA vs SOX） |
-| **L4 结构（估值叙事）** | 高预期 + AI 投资回报周期不确定：四家 CSP 2026Q3 FCF 分化（微软 +$186 亿，谷歌 −$91 亿、Meta −$21 亿、亚马逊 −$335 亿）；NVDA 长期供应承诺 **$2,790 亿**（上季 $1,190 亿）、存货 $320 亿、DSO 60 天、管理层指引毛利率将"稳定在 72–73%" | 折现率与终值假设被上调，估值压缩先于盈利下修 | 毛利率实际路径、存货/DSO 变化、FY2028 营收 +70% 目标是否重申、循环融资担保规模 |
+| **L1 触发（政治事实）** | 民主党控制两院；得州州长与参议员翻蓝；强监管表态密集出现 | 无直接财务影响，改变的是**政策[[investment-knowledge-base#概率分布\|概率分布]]** | 新国会委员会主席人选、听证日程、是否出现正式法案文本 |
+| **L2 传导（物理约束）** | 得州占计划数据中心容量约 27%；地方审批、电网接入、变压器/冷却交付周期长 | **GPU 交付与收入确认时点后移**，而非订单取消；NVDA 已在 [[investment-knowledge-base#10-Q 与 10-K\|10-Q]] 风险披露中提示"电力短缺、融资限制、监管障碍可能延迟客户部署"`A` | 四大 CSP 季度 capex 中"递延交付"表述、backlog 转化、DSX POD 交付节奏 |
+| **L3 放大（市场结构）** | 拥挤的 AI [[investment-knowledge-base#多头与仓位\|多头]] + 高杠杆对冲基金风险限额 + 净 GEX 约 −95.3M（负 Gamma，[[investment-knowledge-base#做市商\|做市商]]跌时卖出涨时买入）+ 纳指跌破 [[investment-knowledge-base#简单移动平均线\|200 日均线]] | 强制去杠杆使跌幅远大于基本面冲击；VIX 28.18 | VIX 回落速度、GEX 转正、[[investment-knowledge-base#ETF\|ETF]] 资金流、板块[[investment-knowledge-base#超额收益\|相对强弱]]（NVDA vs SOX） |
+| **L4 结构（估值叙事）** | 高预期 + AI 投资回报周期不确定：四家 CSP 2026Q3 FCF 分化（微软 +$186 亿，谷歌 −$91 亿、Meta −$21 亿、亚马逊 −$335 亿）；NVDA 长期供应承诺 **$2,790 亿**（上季 $1,190 亿）、存货 $320 亿、[[investment-knowledge-base#应收账款周转天数\|DSO]] 60 天、管理层指引[[investment-knowledge-base#毛利率\|毛利率]]将"稳定在 72–73%" | 折现率与终值假设被上调，估值压缩先于盈利下修 | 毛利率实际路径、存货/DSO 变化、FY2028 营收 +70% 目标是否重申、循环融资担保规模 |
 
 > **核心判断**：L1 是新闻，L2 是可跟踪的经营变量，L3 是短期价格波动的主因，L4 决定中期估值中枢。把四层混为一谈，是"看新闻炒股"最常见的方法论错误。
 >
-> **反面证据需同等重视**：Google 的 Amin Vahdat 与 Epoch AI 的研究均支持 **Jevons 悖论**——单位算力成本下降（Epoch：达成同等性能所需算力每年约降 3 倍）历史上反而扩大总算力消耗；test-time compute / agentic 推理使单次任务 token 消耗成数量级上升。若效率提升转化为需求扩张，L4 的悲观叙事可能被证伪。`B` `C`
+> **反面证据需同等重视**：Google 的 Amin Vahdat 与 Epoch AI 的研究均支持 **Jevons 悖论**——单位算力成本下降（Epoch：达成同等性能所需算力每年约降 3 倍）历史上反而扩大总算力消耗；[[investment-knowledge-base#样本内与样本外|test]]-time compute / agentic 推理使单次任务 token 消耗成数量级上升。若效率提升转化为需求扩张，L4 的悲观叙事可能被证伪。`B` `C`
 
 ---
 
@@ -59,18 +59,18 @@ tags: [investment, nvda, research, brief]
 
 | 日期 | 事件 | 确定性 | 影响路径 | 需跟踪的可验证指标 |
 |---|---|---|---|---|
-| 2026-11-06（美东） | 美股开盘；亚洲盘已延续跌势：三星 −12%、SK 海力士 −15%，标普期货 −0.6%、纳指100 期货 −0.8% | ○ 盘中 | 检验 L3 去杠杆是否结束 | 开盘缺口、VIX、SOX 相对强弱、收盘量比 |
+| 2026-11-06（美东） | 美股开盘；亚洲盘已延续跌势：三星 −12%、SK 海力士 −15%，标普期货 −0.6%、纳指100 期货 −0.8% | ○ 盘中 | 检验 L3 去杠杆是否结束 | [[investment-knowledge-base#开盘缺口\|开盘缺口]]、VIX、SOX 相对强弱、收盘[[investment-knowledge-base#量比\|量比]] |
 | 2026-11-11 | FOMC 10 月会议纪要（汇通网日历口径）| ○ 口径存疑 | 利率路径预期 | — |
-| **2026-11-17（二）盘后** | **Q3 FY2027 财报**（季度截至 10-25）；电话会 17:00 ET，CFO 书面评论约 13:20 PT 发布 | ✅ NVIDIA 官网 10-28 公告 `A` | 最硬的基本面验证 | 实际营收 vs **$1,080 亿 ±2%**；GAAP 毛利率 vs **74.0% ±50bp**；OpEx vs **~$92 亿**；**Q4 指引**；中国数据中心收入假设；供应承诺/存货/DSO；FY2028 +70% 目标是否重申 |
+| **2026-11-17（二）盘后** | **Q3 FY2027 财报**（季度截至 10-25）；电话会 17:00 ET，CFO 书面评论约 13:20 PT 发布 | ✅ NVIDIA 官网 10-28 公告 `A` | 最硬的基本面验证 | 实际营收 vs **$1,080 亿 ±2%**；GAAP 毛利率 vs **74.0% ±50bp**；OpEx vs **~$92 亿**；**[[investment-knowledge-base#业绩指引\|Q4 指引]]**；中国数据中心收入假设；供应承诺/存货/DSO；FY2028 +70% 目标是否重申 |
 | 2026-11-18 | FOMC 10/27–28 会议纪要 | ✅ Fed 官网 `A` | 加息路径措辞 | 委员对通胀与金融条件的分歧 |
-| **2026-11-30 ~ 12-03** | **GTC Washington, D.C.**（官方主题："AI policy meets AI breakthroughs"）| ✅ NVIDIA 官网 `A` | **政治风险的政策信号窗口**，恰好在新国会就职前 | 监管/出口管制/能源相关表态、政府客户订单、游说信号 |
-| 2026-12 上旬 | 11 月 CPI（约 12-10）；RTX PRO 5500 对华样品交付（Reuters 10-20 报道） | ◐ / ○ | 通胀→利率→估值；中国区边际增量 | CPI、CME FedWatch、样品是否如期 |
+| **2026-11-30 ~ 12-03** | **GTC Washington, D.C.**（官方主题："AI policy meets AI breakthroughs"）| ✅ NVIDIA 官网 `A` | **政治风险的政策信号窗口**，恰好在新国会就职前 | 监管/[[investment-knowledge-base#出口管制\|出口管制]]/能源相关表态、政府客户订单、游说信号 |
+| 2026-12 上旬 | 11 月 [[investment-knowledge-base#CPI\|CPI]]（约 12-10）；RTX PRO 5500 对华样品交付（Reuters 10-20 报道） | ◐ / ○ | 通胀→利率→估值；中国区边际增量 | CPI、CME FedWatch、样品是否如期 |
 | **2026-12-08 ~ 09** | **FOMC + SEP/点阵图**（2026 年最后一次） | ✅ Fed 官网日历 `A` | 折现率；沃什已明确"利率对 AI 基建投资有实际影响"，并拒绝前瞻指引 `B` | 是否加息 25bp 至 4.00–4.25%（J.P. Morgan 与预测市场倾向）；2027 中值是否维持 ~4.1%（即 2027 全年不降息） |
 | **2027-01-03** | **新国会就职** | ✅ 法定 `B` | 委员会主席权、监督/听证、拨款与债务上限；总统否决权限制立法 | 首轮听证议题、AI/数据中心相关法案文本、出口管制行政规则 |
-| 2027-01（Q1） | RTX PRO 5500 对华商业交付（工作站卡，非数据中心，边际影响）；DSX POD 开始交付（部署周期由 ~6 个月压缩至最快 14 天） | ○ 厂商计划 `B` | 交付能力取代预算成为瓶颈 | 实际出货量、产能爬坡、客户验收 |
+| 2027-01（Q1） | RTX PRO 5500 对华商业交付（工作站卡，非数据中心，边际影响）；DSX POD 开始交付（部署周期由 ~6 个月压缩至最快 14 天） | ○ 厂商计划 `B` | 交付能力取代预算成为瓶颈 | 实际[[investment-knowledge-base#派发\|出货]]量、产能爬坡、客户验收 |
 | 2027-01-26 ~ 27 | FOMC 2027 首次会议 | ✅ Fed 日历 `A` | 利率路径 | 声明措辞 |
 | 2027-02 下旬 | Q4 & 全年 FY2027 财报 | ◐ 惯例（前次 2026-02） | 下一财年指引 | Q1 FY2028 指引、毛利率 |
-| **2027-03-15 ~ 18** | **GTC 2027**（San Jose；3-14 工作坊、3-15 主题演讲） | ✅ NVIDIA 官网 `A` | 产品路线图与需求能见度 | Rubin Ultra / NVL576（计划 2027H2 量产）、Feynman 路线、网络与软件、订单/产能披露 |
+| **2027-03-15 ~ 18** | **GTC 2027**（San Jose；3-14 工作坊、3-15 主题演讲） | ✅ NVIDIA 官网 `A` | 产品路线图与需求能见度 | [[investment-knowledge-base#GPU 架构代号\|Rubin]] Ultra / NVL576（计划 2027H2 量产）、Feynman 路线、网络与软件、订单/产能披露 |
 | 2027 H1 | 微软明确"2027 年 1–6 月 capex 进一步加速"；谷歌/亚马逊/Meta 均指引 2027 显著增长 | ◐ 公司指引 `B` | **最核心的多空分歧点** | 四家季度 capex 与 FCF、折旧增速、AI 收入变现速度（AWS 称推理已占 AI 收入一半以上） |
 | 2027 H2 | Rubin Ultra（NVL576，144 GPU/柜、~600kW）计划量产 | ○ 产业链消息 `C` | 产品换代与单价 | 是否延期、800V 供电与液冷配套 |
 | 2027 全年 | 预算/债务上限谈判；对华出口管制规则变化；甲骨文已指引 2028–2029 财年 capex 见顶回落 | ○ 条件性 `B` | 尾部风险与需求二阶导 | 立法进展、BIS 规则、CSP 长期 capex 曲线 |
@@ -95,11 +95,11 @@ tags: [investment, nvda, research, brief]
 | 峰值回撤 | **−25.4%**（对 10-06 高点 $243.37）；−24.1%（最高收盘口径） | 自算 / 道琼斯市场数据 `B` |
 | 市值 | 11-04 约 $4.83 万亿；11-05 单日蒸发约 $4,470 亿；峰值以来缩水约 $1.4 万亿 | `B` `C` |
 | VIX | 28.18（3 月底以来最高） | `B` |
-| RSI(14) | 33.6（接近但未进入 <30 超卖区） | 11-05 15:34 盘中 `C` |
+| [[investment-knowledge-base#RSI\|RSI(14)]] | 33.6（接近但未进入 <30 超卖区） | 11-05 15:34 盘中 `C` |
 | 分析师 | 62 位、共识 Strong Buy；目标均价 **$327.14**，中位 $315，区间 **$180–$515** | 11-04 StockAnalysis `C` |
-| 期权（低可信度） | ATM IV 98.7%、隐含日波动 ±4.13%（$7.52）、P/C OI 0.72、Max Pain $207.5、Put Wall $185 / Call Wall $210、净 GEX −95.3M | 第三方自动化站，11-06 更新 `C` |
+| [[investment-knowledge-base#期权\|期权]]（低可信度） | [[investment-knowledge-base#隐含波动率\|ATM IV]] 98.7%、隐含日波动 ±4.13%（$7.52）、P/C OI 0.72、Max Pain $207.5、Put Wall $185 / Call Wall $210、净 GEX −95.3M | 第三方自动化站，11-06 更新 `C` |
 
-> **目标价区间 $180–$515 相差 2.9 倍**，本身就是"分歧极大"的量化证据；均值 $327.14 相对 $181.60 隐含 +80.1%，不宜作为预测使用。
+> **[[investment-knowledge-base#分析师目标价|目标价]]区间 $180–$515 相差 2.9 倍**，本身就是"分歧极大"的量化证据；均值 $327.14 相对 $181.60 隐含 +80.1%，不宜作为预测使用。
 
 ### 4.2 用站内已有框架判定 11-05（对接 `[[earnings-drift-strategy]]`）
 
@@ -112,19 +112,19 @@ tags: [investment, nvda, research, brief]
 | 改变原趋势 | 定性 | 跌破 200 日均线、进入技术性熊市 | ✅ |
 | 站稳 | 后续 3–5 日维持有利一侧 | **11-06~11-12 数据尚不存在** | ❌ 未确认 |
 
-**输出：3/4 满足，"站稳"未确认 → 按纪律，11-05 不构成建仓信号。** 需等待 11-06 起 3–5 个交易日确认，且按空头/回避方向处理，不抄底。
+**输出：3/4 满足，"站稳"未确认 → 按纪律，11-05 不构成建仓信号。** 需等待 11-06 起 3–5 个交易日确认，且按[[investment-knowledge-base#做空与空头|空头]]/回避方向处理，不抄底。
 
-**两点必须诚实说明**：① 标准量比应为「当日量 / 前 20 日均量」，此处仅有前一日数据，2.05 是**代理值**，完整版会用 `yfinance` 重算；② 11-05 并非财报事件，套用 PEAD 框架只是**演示量价信号的工程化判定**，不构成策略适用性的证据。此前本仓库实测（2023-10~2026-10，8 次财报）显示该 naive 信号**一次未触发**，且多数财报后出现反转——这是对"跟随巨轮"叙事的重要反证，应保留。
+**两点必须诚实说明**：① 标准量比应为「当日量 / 前 [[investment-knowledge-base#ADV20|20 日均量]]」，此处仅有前一日数据，2.05 是**代理值**，完整版会用 `yfinance` 重算；② 11-05 并非财报事件，套用 [[investment-knowledge-base#PEAD|PEAD]] 框架只是**演示量价信号的工程化判定**，不构成策略适用性的证据。此前本仓库实测（2023-10~2026-10，8 次财报）显示该 naive 信号**一次未触发**，且多数财报后出现反转——这是对"跟随巨轮"叙事的重要反证，应保留。
 
 ### 4.3 估值口径冲突：本次最重要的"数据卫生"案例
 
-| 来源 | 所称 forward P/E | 时点 | 推断口径 |
+| 来源 | 所称 forward [[investment-knowledge-base#市盈率\|P/E]] | 时点 | 推断口径 |
 |---|---|---|---|
 | Yahoo Finance AlphaSpace（转引） | **12.9x** | 2026-11 初 | 大概率 FY2028 预期 EPS |
 | Jim Cramer（CNBC） | 16.5x | 11-05 | NTM / 混合口径 |
 | StockAnalysis | 16.6x | 11-04（$200.13） | NTM |
 | Investing.com / Finnhub | 21.5x | 11-05 15:34（$183.04） | 口径未披露 |
-| 媒体另引 | TTM 25.3x / 25.88x | 11-04~05 | 过去 12 个月 EPS $8.09 / $7.99 |
+| 媒体另引 | [[investment-knowledge-base#TTM\|TTM]] 25.3x / 25.88x | 11-04~05 | 过去 12 个月 EPS $8.09 / $7.99 |
 
 **统一口径自算（价格一律用 11-05 收盘 $181.60）**：
 
@@ -140,21 +140,21 @@ tags: [investment, nvda, research, brief]
 
 | 类别 | 信号 | 为什么重要 | 数据源 |
 |---|---|---|---|
-| 趋势 | 200 日均线、52 周分位、峰值回撤 | 11-05 跌破 200 日线是风控/CTA 触发条件 | 行情 |
-| 动量 | 12–1 月动量、RSI(14) | Jegadeesh & Titman (1993) 中期动量；RSI 仅作极端度参考 | 行情 |
-| 波动 | 已实现波动率、VIX、ATM IV、IV 与 RV 价差 | 高 IV 意味着财报/政策事件被高度定价；负 Gamma 放大日内波动 | CBOE / 期权链 |
-| 量能 | 20 日量比、OBV、ADV | 机构调仓痕迹（VPIN 框架）；ADV 过滤流动性 | 行情 |
+| 趋势 | 200 日均线、[[investment-knowledge-base#52 周分位\|52 周分位]]、峰值回撤 | 11-05 跌破 200 日线是风控/CTA 触发条件 | 行情 |
+| [[investment-knowledge-base#动量\|动量]] | 12–1 月动量、RSI(14) | Jegadeesh & Titman (1993) 中期动量；RSI 仅作极端度参考 | 行情 |
+| 波动 | [[investment-knowledge-base#已实现波动率\|已实现波动率]]、VIX、ATM IV、IV 与 RV [[investment-knowledge-base#买卖价差\|价差]] | 高 IV 意味着财报/政策事件被高度定价；负 Gamma 放大日内波动 | CBOE / 期权链 |
+| 量能 | 20 日量比、[[investment-knowledge-base#OBV\|OBV]]、ADV | 机构调仓痕迹（VPIN 框架）；ADV 过滤流动性 | 行情 |
 | 事件 | 财报日事件收益、指引差（guidance surprise）、PEAD 漂移 | Ball & Brown (1968)、Bernard & Thomas (1989/1990) | SEC 8-K / IR |
 | 基本面 | 数据中心营收环比、毛利率、存货、DSO、供应承诺、FCF | 越是"供给受限"叙事，越要盯交付与营运资本 | 10-Q / 10-K |
 | 产业链 | 四大 CSP capex 与 FCF、云 backlog、电力/交付递延表述 | NVDA 收入 ≈ 客户 capex 的下游函数 | 各家财报 / 券商汇总 |
 | 估值 | 统一口径 forward P/E 的历史分位、PEG（注明增长率来源） | 避免 §4.3 的口径污染 | 自建 |
-| 政策 | 法案文本、听证日程、BIS 规则、得州审批数据 | 把"新闻"变成可跟踪状态机 | Fed / Congress / BIS / NVIDIA IR |
+| 政策 | 法案文本、听证日程、BIS 规则、得州审批数据 | 把"新闻"变成可跟踪[[investment-knowledge-base#政策状态机\|状态机]] | Fed / Congress / BIS / NVIDIA IR |
 
 **方法与教程来源（可复现路径）**：
-- 数据：`yfinance`（免费 OHLCV/财务）、SEC EDGAR（财报原文，避免二手转述）、FRED（利率/宏观）、CME FedWatch（利率概率）。
-- 指标与回测：`pandas_ta` / `TA-Lib`（SMA/EMA、RSI、MACD、ATR、Bollinger）、`backtrader`（事件驱动）、`vectorbt`（向量化）、`alphalens`（因子分析）、`empyrical`（绩效指标）。教程入口：[Technical Analysis Library in Python 文档](https://technical-analysis-library-in-python.readthedocs.io/)、[Trading Strategies Academy: Python Indicators](https://trading-strategies.academy/archives/3523)、[GitHub 多策略回测示例](https://github.com/ishtufinquant/backtesting)。
-- 学术与风控（**比"哪条均线好用"重要得多**）：Jegadeesh & Titman (1993, *JF*) 动量、Fama & French (1993/2015) 因子、Moreira & Muir (2017, *JF*) 波动率管理组合、Han/Zhou/Zhu 动量崩溃止损、López de Prado (2014) 回测过拟合与 Deflated Sharpe (2014)、*Advances in Financial Machine Learning* (2018)、Kakushadze (2016) *101 Formulaic Alphas*。中文索引：[量化必读论文清单](https://waylandz.com/quant-book/ArXiv%20Papers/)、[Quant Wiki](https://quant-wiki.com/library/book/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/101%20Formulaic%20Alphas%20-%20arXiv.org/)。
-- **必须内置的回测纪律**：walk-forward 样本外验证、含手续费与滑点、point-in-time 数据（财报用**公布日**而非报告期末，防前视偏差）、多重检验校正、参数稳定性检验。本仓库 `strategy/earnings-drift-strategy.md` 已记录"未触发 + 多数反转"的负面实证，是很好的起点。
+- 数据：`yfinance`（免费 [[investment-knowledge-base#OHLCV|OHLCV]]/财务）、SEC EDGAR（财报原文，避免二手转述）、FRED（利率/宏观）、CME FedWatch（利率概率）。
+- 指标与回测：`pandas_ta` / `TA-Lib`（SMA/[[investment-knowledge-base#指数移动平均线|EMA]]、RSI、[[investment-knowledge-base#MACD|MACD]]、[[investment-knowledge-base#ATR|ATR]]、Bollinger）、`backtrader`（事件驱动）、`vectorbt`（向量化）、`alphalens`（因子分析）、`empyrical`（绩效指标）。教程入口：[Technical Analysis Library in Python 文档](https://technical-analysis-library-in-python.readthedocs.io/)、[Trading Strategies Academy: Python Indicators](https://trading-strategies.academy/archives/3523)、[GitHub 多策略回测示例](https://github.com/ishtufinquant/backtesting)。
+- 学术与风控（**比"哪条均线好用"重要得多**）：Jegadeesh & Titman (1993, *JF*) 动量、Fama & French (1993/2015) 因子、Moreira & Muir (2017, *JF*) 波动率管理组合、Han/Zhou/Zhu 动量崩溃止损、López de Prado (2014) 回测[[investment-knowledge-base#过拟合|过拟合]]与 Deflated Sharpe (2014)、*Advances in Financial Machine Learning* (2018)、Kakushadze (2016) *101 Formulaic Alphas*。中文索引：[量化必读论文清单](https://waylandz.com/quant-book/ArXiv%20Papers/)、[Quant Wiki](https://quant-wiki.com/library/book/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/101%20Formulaic%20Alphas%20-%20arXiv.org/)。
+- **必须内置的回测纪律**：walk-forward 样本外验证、含[[investment-knowledge-base#交易成本|手续费]]与[[investment-knowledge-base#滑点|滑点]]、point-in-time 数据（财报用**公布日**而非报告期末，防[[investment-knowledge-base#前视偏差|前视偏差]]）、[[investment-knowledge-base#多重检验|多重检验]]校正、参数稳定性检验。本仓库 `strategy/earnings-drift-strategy.md` 已记录"未触发 + 多数反转"的负面实证，是很好的起点。
 
 ### 4.5 最小可运行示范
 
@@ -185,7 +185,7 @@ NOTE: volume ratio uses prev-day only; production version must use 20d ADV.
 | StockAnalysis 共识 | 62 位分析师 Strong Buy，均价 $327.14（$180–$515） | 11-04 | `C` |
 | Jim Cramer（CNBC） | "约十年来最便宜估值"，16.5x | 11-05 | `C` |
 | Founder ETFs（M. Monaghan） | 暴跌主因是对冲基金去杠杆，建设不会停，财报前视为机会 | 11-06 | `B` 转述 |
-| Aptus Capital（D. Wagner） | 估值修复而非逻辑崩塌，护城河（芯片+CUDA+开发者）仍宽 | 11-06 | `B` 转述 |
+| Aptus Capital（D. Wagner） | 估值修复而非逻辑崩塌，护城河（芯片+[[investment-knowledge-base#CUDA\|CUDA]]+开发者）仍宽 | 11-06 | `B` 转述 |
 | Miller Tabak（M. Maley） | 盈利担忧加剧，AI 叙事出现裂痕 | 11 月初 | `C` 转述 |
 | George Noble（前 Peter Lynch 分析师） | 循环融资 ≈ 2000 年思科供应商融资；NVDA 标普权重约 8%，为思科峰值两倍，警告系统性脆弱；技术面跌破长期上升楔形 | 11-06 | `B` 转述 |
 | J.P. Morgan | 12 月或再加息一次；2027 全年按兵不动（中值 ~4.1%） | 10 月 | `C` |
@@ -258,7 +258,7 @@ NOTE: volume ratio uses prev-day only; production version must use 20d ADV.
 | `data_ingest.py` | OHLCV、财报、事件日历、宏观数据落地为带口径元数据的本地数据集 | yfinance / SEC EDGAR / FRED |
 | `signals.py` | 趋势、动量、波动、量能、事件、估值分位；统一 forward P/E 口径 | pandas / pandas_ta |
 | `backtest.py` | walk-forward、含成本与滑点、Deflated Sharpe、参数稳定性 | vectorbt / backtrader / empyrical |
-| `report.py` | 生成周度简报、异常告警、事件倒计时 | 标准库 |
+| `report.py` | 生成周度简报、异常告警、[[investment-knowledge-base#计划内事件\|事件倒计时]] | 标准库 |
 
 **代码隔离（第 3 项要求）**
 - 现状核验：`.gitignore` 第 15 行 `content/Investment/code/` 已生效；`git check-ignore -v` 确认脚本被忽略；且 Quartz 构建使用 `globby({ gitignore: true })`，实测当前配置下 `code/` 下 4 个文件**均不会被复制到 `public/`**（`public/` 中也未发现 .py）。
@@ -269,4 +269,4 @@ NOTE: volume ratio uses prev-day only; production version must use 20d ADV.
 
 ## 免责声明
 
-本文件为个人学习与研究记录，**不构成任何投资建议、要约或价格预测**。所有数据均有强时效性，且部分来自二手转述或第三方自动化站点，请以官方来源（NVIDIA IR、SEC EDGAR、Fed、交易所行情）为准。历史规律不代表未来；美股投资涉及汇率、税务（如 W-8BEN）与监管风险，决策需独立判断，必要时咨询持牌顾问。相关阅读：[[nvda-analysis]]、[[earnings-drift-strategy]]、[[risk-management]]、[[resources]]。
+本文件为个人学习与研究记录，**不构成任何投资建议、要约或价格预测**。所有数据均有强时效性，且部分来自二手转述或第三方自动化站点，请以官方来源（NVIDIA IR、SEC EDGAR、Fed、交易所行情）为准。历史规律不代表未来；美股投资涉及汇率、税务（如 [[investment-knowledge-base#W-8BEN|W-8BEN]]）与监管风险，决策需独立判断，必要时咨询持牌顾问。相关阅读：[[nvda-analysis]]、[[earnings-drift-strategy]]、[[risk-management]]、[[resources]]。

@@ -9,24 +9,24 @@ tags: [investment, strategy, risk]
 
 ## 仓位管理
 
-- **单标的上限**：新手建议单一股票（如 NVDA）不超过组合的 10–15%；黄金 5–10%。
-- **小仓位实践**：先用 1–5 股 NVDA、少量 GLD 练手，验证逻辑而非博收益。
+- **单标的上限**：新手建议单一[[investment-knowledge-base#股票与股权|股票]]（如 NVDA）不超过组合的 10–15%；黄金 5–10%。
+- **小[[investment-knowledge-base#多头与仓位|仓位]]实践**：先用 1–5 股 NVDA、少量 [[investment-knowledge-base#ETF|GLD]] 练手，验证逻辑而非博收益。
 - **不用的钱才投资**：3 年内要用的钱不应投高风险资产。
 
 ## 止损与止盈
 
 - 每笔交易前定好：**最大可亏多少**（如 −8% 到 −15% 止损）。
-- 可用 IBKR 的 **Stop / Bracket** 单自动执行，避免情绪干扰（见 [[order-types]]）。
+- 可用 IBKR 的 **Stop / [[investment-knowledge-base#止损单|Bracket]]** 单自动执行，避免情绪干扰（见 [[order-types]]）。
 - 盈利仓位可用**跟踪止损**锁定利润。
 
 ## 杠杆风险
 
-- 保证金账户能放大盈亏；新手强烈建议先用**现金账户**，远离杠杆与卖空。
+- [[investment-knowledge-base#保证金|保证金账户]]能放大盈亏；新手强烈建议先用**现金账户**，远离杠杆与[[investment-knowledge-base#做空与空头|卖空]]。
 - 即便用 IBKR Pro 的低保证金利率，杠杆在下跌时会触发**追保/强平**。
 
 ## 集中风险
 
-- 全仓 NVDA 看似刺激，但单一公司风险（竞争、政策、估值）极高；用黄金与宽基指数分散。
+- 全仓 NVDA 看似刺激，但单一公司风险（竞争、政策、估值）极高；用黄金与宽基[[investment-knowledge-base#指数|指数]]分散。
 
 ## 交易前 Checklist
 

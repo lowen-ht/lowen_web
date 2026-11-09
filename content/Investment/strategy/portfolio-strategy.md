@@ -12,9 +12,9 @@ tags: [investment, strategy]
 
 ## 核心-卫星（推荐给本项目）
 
-- **核心（70–85%）**：低成本宽基指数 ETF（如 VOO 标普500 / VT 全球），提供市场 β。
-- **成长卫星（NVDA，5–15%）**：高预期高波动，用小仓位参与 AI 主题，不赌身家。
-- **对冲卫星（黄金，5–10%）**：用 GLD / IAU / GLDM 对冲系统性风险与通胀。
+- **核心（70–85%）**：低成本宽基[[investment-knowledge-base#指数|指数]] [[investment-knowledge-base#ETF|ETF]]（如 VOO 标普500 / VT 全球），提供市场 β。
+- **成长卫星（NVDA，5–15%）**：高预期高波动，用小[[investment-knowledge-base#多头与仓位|仓位]]参与 AI 主题，不赌身家。
+- **对冲卫星（黄金，5–10%）**：用 GLD / IAU / GLDM 对冲[[investment-knowledge-base#系统性风险|系统性风险]]与通胀。
 - **现金（机动）**：保留加仓弹药与应急金。
 
 ## 再平衡（Rebalancing）
@@ -24,7 +24,7 @@ tags: [investment, strategy]
 
 ## 长期视角
 
-- 少看盘、少交易；交易成本与情绪是收益的隐形杀手。
+- 少看盘、少交易；[[investment-knowledge-base#交易成本|交易成本]]与情绪是收益的隐形杀手。
 - 用 [[dollar-cost-averaging]] 平滑建仓节奏。
 
 ## 延伸阅读

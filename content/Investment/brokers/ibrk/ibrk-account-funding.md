@@ -10,7 +10,7 @@ tags: [investment, broker, ibkr]
 1. 在 IBKR 官网注册，选择 **Individual Account**（个人）。
 2. 填写身份信息、联系方式、就业与财务背景（KYC）。
 3. 上传证件：身份证/护照、地址证明（水电账单/银行对账单）。
-4. 非美居民填写税务表 **W-8BEN**（声明非美税务居民，避免 30% 备用预扣）。
+4. 非美居民填写税务表 **[[investment-knowledge-base#W-8BEN|W-8BEN]]**（声明非美税务居民，避免 30% 备用预扣）。
 5. 等待审核（通常数日），通过后激活。
 
 ## 入金（Funding）
@@ -24,7 +24,7 @@ tags: [investment, broker, ibkr]
 
 ## 强烈建议：先模拟
 
-- 开户后即可使用 **Paper Trading（模拟账户）**，用虚拟资金练习买 NVDA、GLD，熟悉 Client Portal / TWS 与订单类型，再入金实盘。
+- 开户后即可使用 **Paper Trading（模拟账户）**，用虚拟资金练习买 NVDA、[[investment-knowledge-base#ETF|GLD]]，熟悉 Client Portal / TWS 与订单类型，再入金实盘。
 
 ## 风险提示
 

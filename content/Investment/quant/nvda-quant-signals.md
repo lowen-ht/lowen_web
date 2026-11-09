@@ -5,9 +5,9 @@ tags: [investment, nvda, quant, signals, framework]
 
 # NVDA 量化信号体系（核心）
 
-> **定位**：这是 NVDA 板块的**主文档**，重心是量化信号。事件跟踪作为信号的「已知扰动项」接入，见 [[nvda-event-calendar]]；逐日数值见 `../daily/`；信号速查见 [[nvda-signal-dictionary]]；回测结论见 [[nvda-backtest-discipline]]；教程与来源见 [[nvda-quant-data-sources]]。
+> **定位**：这是 NVDA 板块的**主文档**，重心是量化信号。事件跟踪作为信号的「已知扰动项」接入，见 [[nvda-event-calendar]]；逐日数值见 `../daily/`；信号速查见 [[nvda-signal-dictionary]]；[[investment-knowledge-base#回测|回测]]结论见 [[nvda-backtest-discipline]]；教程与来源见 [[nvda-quant-data-sources]]。
 >
-> **所有数值来自 `code/` 程序对真实日线的计算**（Yahoo Finance chart API，5 年 1254 根日线，截点 **2026-11-05 收盘**），不是媒体转述。程序、缓存数据与预测状态都在 `content/Investment/code/`，已被 Git 与 Quartz 双重隔离。
+> **所有数值来自 `code/` 程序对真实[[investment-knowledge-base#OHLCV|日线]]的计算**（Yahoo Finance chart API，5 年 1254 根日线，截点 **2026-11-05 收盘**），不是媒体转述。程序、缓存数据与预测状态都在 `content/Investment/code/`，已被 Git 与 Quartz 双重隔离。
 >
 > 本页不构成投资建议、不含交易指令。
 
@@ -15,9 +15,9 @@ tags: [investment, nvda, quant, signals, framework]
 
 ## 0. 三条前置纪律（比任何指标都重要）
 
-1. **口径元数据必须与数值一起存储**。同一个「前瞻市盈率」在 2026-11-05 被不同媒体写成 12.9x / 16.5x / 16.6x / 21.5x，相差近两倍；根因是 NVDA **财年 1 月底结束**（FY2027 ≈ 2026-02~2027-01），叠加 NTM / 单一财年 / GAAP vs non-GAAP EPS 混用。统一按 11-05 收盘 $181.60 自算：**TTM 22.4x、FY2027 19.5x、FY2028 11.4x**。任何「便宜/贵」的判断，必须先声明财年、EPS 来源与价格时点。
-2. **收盘价与盘中快照不可混用**。同为 11-05，媒体出现 −9.26%（收盘）、−9.18%、−7.3%、−6.94% 等数字；错误地把盘中价当事件收益，会污染回测。同理，试运行简报引用 15:34 盘中 RSI **33.6**，而用完整日线按 Wilder 法计算的**收盘 RSI(14) = 25.4**——已跌入超卖区，结论不同。
-3. **先找反证，再找信号**。本仓库 [[earnings-drift-strategy]] 实测（2023-10~2026-10，8 次财报）naive「巨量+大波动+站稳」信号**一次未触发**，且多数财报后反转。任何「跟随机构巨轮」的直觉在 NVDA 上都先按反证处理。
+1. **[[investment-knowledge-base#口径元数据|口径元数据]]必须与数值一起存储**。同一个「[[investment-knowledge-base#前瞻市盈率|前瞻市盈率]]」在 2026-11-05 被不同媒体写成 12.9x / 16.5x / 16.6x / 21.5x，相差近两倍；根因是 NVDA **[[investment-knowledge-base#财年|财年]] 1 月底结束**（FY2027 ≈ 2026-02~2027-01），叠加 [[investment-knowledge-base#NTM|NTM]] / 单一财年 / GAAP vs non-GAAP [[investment-knowledge-base#每股收益|EPS]] 混用。统一按 11-05 收盘 $181.60 自算：**[[investment-knowledge-base#TTM|TTM]] 22.4x、FY2027 19.5x、FY2028 11.4x**。任何「便宜/贵」的判断，必须先声明财年、EPS 来源与价格时点。
+2. **收盘价与盘中快照不可混用**。同为 11-05，媒体出现 −9.26%（收盘）、−9.18%、−7.3%、−6.94% 等数字；错误地把盘中价当事件收益，会污染回测。同理，试运行简报引用 15:34 盘中 [[investment-knowledge-base#RSI|RSI]] **33.6**，而用完整日线按 Wilder 法计算的**收盘 RSI(14) = 25.4**——已跌入超卖区，结论不同。
+3. **先找反证，再找信号**。本仓库 [[earnings-drift-strategy]] 实测（2023-10~2026-10，8 次[[investment-knowledge-base#财报|财报]]）naive「巨量+大波动+站稳」信号**一次未触发**，且多数财报后反转。任何「跟随机构巨轮」的直觉在 NVDA 上都先按反证处理。
 
 ---
 
@@ -25,15 +25,15 @@ tags: [investment, nvda, quant, signals, framework]
 
 | 层 | 观测对象 | 回答什么问题 | 主要信号 | 更新频率 |
 |---|---|---|---|---|
-| **L0 数据卫生** | 数据源本身 | 这个数能不能用？ | 口径元数据、收盘/盘中标记、ADV 分母、调整方式、来源分级 | 每次取数 |
-| **L1 趋势 / 风控** | 价格水平 | 长期趋势是否破损？风控是否被触发？ | SMA20/50/200、200 日线偏离、52 周分位、峰值回撤、12-1 动量 | 每日 |
-| **L2 短周期动量 / 极端度** | 价格变化率 | 是否处于统计极端？ | RSI(14) Wilder、MACD 柱、布林带 z、5/20 日收益 | 每日 |
-| **L3 波动** | 不确定性本身 | 该给多宽的分布？ | ATR(14)、20 日已实现波动率、VIX、IV/RV 价差、事件隐含波幅 | 每日 |
-| **L4 量能 / 微观结构** | 成交量 | 是真实调仓还是空头回补？ | 量比（vol / **ADV20**）、OBV 斜率、放量方向 | 每日 |
-| **L5 相对强度 / 因子** | 与板块、大盘的关系 | 涨跌是个股还是系统性？ | beta vs 费半、NVDA−SOX 超额、残差、QQQ/SOX 相对 | 每日 |
-| **L6 事件 / 基本面 / 估值** | 公司经营与政策 | 需求侧有没有被证伪？ | 财报惊喜、Q4 指引、毛利率、存货/DSO/供应承诺、CSP capex、统一口径 P/E、政策状态机 | 事件驱动 |
+| **L0 数据卫生** | 数据源本身 | 这个数能不能用？ | 口径元数据、收盘/盘中标记、[[investment-knowledge-base#ADV20\|ADV]] 分母、调整方式、[[investment-knowledge-base#来源分级\|来源分级]] | 每次取数 |
+| **L1 趋势 / 风控** | 价格水平 | 长期趋势是否破损？风控是否被触发？ | [[investment-knowledge-base#简单移动平均线\|SMA20]]/50/200、200 日线偏离、[[investment-knowledge-base#52 周分位\|52 周分位]]、[[investment-knowledge-base#最大回撤\|峰值回撤]]、12-1 [[investment-knowledge-base#动量\|动量]] | 每日 |
+| **L2 短周期动量 / 极端度** | 价格变化率 | 是否处于统计极端？ | RSI(14) Wilder、[[investment-knowledge-base#MACD\|MACD 柱]]、[[investment-knowledge-base#布林带\|布林带]] z、5/20 日收益 | 每日 |
+| **L3 波动** | 不确定性本身 | 该给多宽的分布？ | [[investment-knowledge-base#ATR\|ATR(14)]]、20 日[[investment-knowledge-base#已实现波动率\|已实现波动率]]、[[investment-knowledge-base#VIX\|VIX]]、[[investment-knowledge-base#隐含波动率\|IV]]/RV [[investment-knowledge-base#买卖价差\|价差]]、事件[[investment-knowledge-base#隐含波幅\|隐含波幅]] | 每日 |
+| **L4 [[investment-knowledge-base#量比\|量能]] / 微观结构** | 成交量 | 是真实调仓还是[[investment-knowledge-base#空头回补\|空头回补]]？ | 量比（vol / **ADV20**）、[[investment-knowledge-base#OBV\|OBV]] 斜率、放量方向 | 每日 |
+| **L5 相对强度 / 因子** | 与板块、大盘的关系 | 涨跌是个股还是系统性？ | beta vs [[investment-knowledge-base#费城半导体指数\|费半]]、NVDA−SOX 超额、[[investment-knowledge-base#残差\|残差]]、[[investment-knowledge-base#ETF\|QQQ]]/SOX 相对 | 每日 |
+| **L6 事件 / 基本面 / 估值** | 公司经营与政策 | 需求侧有没有被证伪？ | 财报惊喜、[[investment-knowledge-base#业绩指引\|Q4 指引]]、[[investment-knowledge-base#毛利率\|毛利率]]、存货/[[investment-knowledge-base#应收账款周转天数\|DSO]]/[[investment-knowledge-base#供应承诺\|供应承诺]]、[[investment-knowledge-base#资本开支\|CSP capex]]、统一口径 [[investment-knowledge-base#市盈率\|P/E]]、[[investment-knowledge-base#政策状态机\|政策状态机]] | 事件驱动 |
 
-> **读法**：L0 是门槛，L1/L5 决定方向背景，L3 决定分布宽度，L4 判断可信度，L6 决定中期估值中枢。**单一层不能单独给出交易结论**。11-05 的 −9.26% 正是 L5（费半 −12.25%）主导、L3（负 Gamma / 高 IV）放大、L6（capex 现金流叙事）承压的叠加结果，而非 L2 的「超卖」能解释。
+> **读法**：L0 是门槛，L1/L5 决定方向背景，L3 决定分布宽度，L4 判断可信度，L6 决定中期估值中枢。**单一层不能单独给出交易结论**。11-05 的 −9.26% 正是 L5（费半 −12.25%）主导、L3（[[investment-knowledge-base#负 Gamma|负 Gamma]] / 高 IV）放大、L6（capex 现金流叙事）承压的叠加结果，而非 L2 的「超卖」能解释。
 
 ---
 
@@ -42,8 +42,8 @@ tags: [investment, nvda, quant, signals, framework]
 ### ① 量比 = 当日成交量 / 前 20 日均量（ADV20）
 - **实测 2026-11-05：2.928x**（成交量 3.03 亿股，ADV20 1.035 亿股）。
 - **修正**：试运行简报用「前一日成交量」作代理得到 2.054，**不是标准口径**。完整版已用真实 ADV20 重算，数值差 43%。
-- 为什么重要：异常成交量是信息不对称与机构调仓的代理（Easley/López de Prado/O'Hara 的 VPIN 框架）；「放量下跌 = 分配，缩量反弹 = 空头回补」是区分反转与反抽的核心。
-- 失效：拆股、指数再平衡、期权到期日、财报日会自然放量，需与事件日历联合判断。
+- 为什么重要：异常成交量是信息不对称与机构调仓的代理（Easley/López de Prado/O'Hara 的 VPIN 框架）；「[[investment-knowledge-base#派发|放量下跌]] = 分配，缩量反弹 = 空头回补」是区分反转与反抽的核心。
+- 失效：[[investment-knowledge-base#拆股|拆股]]、[[investment-knowledge-base#指数|指数]]再平衡、[[investment-knowledge-base#期权|期权]]到期日、财报日会自然放量，需与事件日历联合判断。
 
 ### ② 200 日均线偏离 & 12-1 月动量
 - **实测**：SMA20 213.68 / SMA50 220.64 / SMA200 **204.66**；收盘价低于 200 日线 **−11.27%**；12-1 月动量 **−8.60%**。
@@ -52,8 +52,8 @@ tags: [investment, nvda, quant, signals, framework]
 
 ### ③ 20 日已实现波动率（年化）与 ATR(14)
 - **实测**：RV20 **45.7%**、ATR14 占价格 **4.04%**、VIX **28.18**（5 日 +10.98 点）。
-- 为什么重要：**波动率决定「该给多宽的分布」，而不是方向**。11-05 的回测演练（见 [[nvda-backtest-discipline]]）正是因为用「小缺口 + 低波动」的窄分布，被 −9.26% 击穿 80% 区间，得到 Brier 0.541 / D 级。
-- 用法：高波动时主动加宽两尾、降低任何方向倾斜的权重。IV/RV 价差可衡量事件溢价是否被高估（Cboe：财报前短期 IV 隐含的是幅度，不含方向）。
+- 为什么重要：**波动率决定「该给多宽的分布」，而不是方向**。11-05 的回测演练（见 [[nvda-backtest-discipline]]）正是因为用「小缺口 + 低波动」的窄分布，被 −9.26% 击穿 [[investment-knowledge-base#预测区间|80% 区间]]，得到 Brier 0.541 / D 级。
+- 用法：高波动时主动加宽两尾、降低任何方向[[investment-knowledge-base#倾斜|倾斜]]的权重。IV/RV 价差可衡量事件溢价是否被高估（Cboe：财报前短期 IV 隐含的是幅度，不含方向）。
 
 ### ④ 板块 beta 与个股残差
 - **实测**：60 日 beta vs 费半 **0.67**；11-05 费半 **−12.25%** → beta 解释 **−7.99%**，而个股残差仅约 **−1.3%**；20 日 NVDA 相对费半超额 **+7.41%**。
@@ -62,23 +62,23 @@ tags: [investment, nvda, quant, signals, framework]
 
 ### ⑤ PEAD 四条件（工程化判定，非策略背书）
 - **实测**：大波动 `PASS`（|−9.26%| > 3%）、巨量 `PASS`（2.928x > 2x）、改变趋势 `PASS`（跌破 200 日线）、**站稳 `PENDING`**（需 11-06~11-12 共 3–5 个交易日）→ 输出 **`WAIT (3/4)`**，按纪律不构成建仓信号。
-- 必须诚实：11-05 **不是财报事件**，套用 PEAD 只是量价信号的工程化演示；且站内 8 次财报实测该 naive 信号一次未触发。
+- 必须诚实：11-05 **不是财报事件**，套用 [[investment-knowledge-base#PEAD|PEAD]] 只是量价信号的工程化演示；且站内 8 次财报实测该 naive 信号一次未触发。
 - 学术内核：Ball & Brown (1968)、Bernard & Thomas (1989/1990)、Jegadeesh & Titman (1993)。
 
 ### ⑥ 财报隐含波幅（距 11-17 财报 T-11d）
-- 方法：Cboe 的口径——比较近月与远月 IV 可拆出「事件跳跃」的标准差；实务上用 **ATM straddle 价格 / 股价** 作为隐含波幅估计（7.40 美元 straddle / 100 美元 ≈ 7.4%），并用 2/3 经验法则取高概率点。
-- 为什么重要：它给的是**幅度**，不是方向；可用来判断「市场已经定价了多少」，也用于给预测分布定宽。IV crush（事件后 IV 崩塌）意味着方向猜对也可能亏损，这是期权买方的常见陷阱。
+- 方法：Cboe 的口径——比较近月与远月 IV 可拆出「事件跳跃」的[[investment-knowledge-base#标准差与方差|标准差]]；实务上用 **[[investment-knowledge-base#跨式组合|ATM straddle]] 价格 / 股价** 作为隐含波幅估计（7.40 美元 straddle / 100 美元 ≈ 7.4%），并用 2/3 经验法则取高概率点。
+- 为什么重要：它给的是**幅度**，不是方向；可用来判断「市场已经定价了多少」，也用于给预测分布定宽。[[investment-knowledge-base#IV crush|IV crush]]（事件后 IV 崩塌）意味着方向猜对也可能亏损，这是期权买方的常见陷阱。
 - 数据卫生：本次检索到的 ATM IV 98.7% 来自第三方自动化站（C 级），**未写入生产输入**；`data/premarket.json` 中 `atm_iv = null`，有可靠期权链前不用。
 
 ### ⑦ 统一口径估值分位
-- **实测**：TTM **22.4x** / FY2027 **19.5x** / FY2028 **11.4x**；分析师目标价高/低 = 515/180 = **2.86x 离散度**。
+- **实测**：TTM **22.4x** / FY2027 **19.5x** / FY2028 **11.4x**；[[investment-knowledge-base#分析师目标价|分析师目标价]]高/低 = 515/180 = **2.86x 离散度**。
 - 为什么重要：离散度本身是「分歧极大」的量化证据。目标均价 $327.14 相对 $181.60 隐含 +80%，**不宜作为预测**；但 2.86 倍的目标价区间说明任何单点估值都极不可靠。
 - 用法：只与**同口径历史分位**比较，绝不跨口径比较。
 
 ### ⑧ 事件状态机（把新闻变成可跟踪状态）
-- 定义：`表态/传闻 → 正式文本 → 落地执行 → 公司披露验证`，每级配「影响路径 + 可验证指标」。见 [[nvda-event-calendar]]。
+- 定义：`表态/传闻 → 正式文本 → 落地执行 → 公司披露验证`，每级配「影响路径 + [[investment-knowledge-base#可证伪条件|可验证指标]]」。见 [[nvda-event-calendar]]。
 - 为什么是信号：截至 11-06，强监管仍是**议员表态、候任州长呼吁、地方议案**，**尚无联邦立法**；新国会 2027-01-03 才就职，总统保留否决权。把「表态」写成「已落地政策」是最常见的归因错误。
-- 传导路径是**审批 / 电力 → GPU 交付时点后移**，不是当期订单取消。需求侧一手证据尚未被推翻：四大 CSP 2026Q3 capex 同比 +84%~90%，四家均指引 2027 继续扩张。
+- 传导路径是**审批 / 电力 → GPU 交付时点后移**，不是当期订单取消。需求侧一手证据尚未被推翻：[[investment-knowledge-base#CSP|四大 CSP]] 2026Q3 capex 同比 +84%~90%，四家均指引 2027 继续扩张。
 
 ---
 
@@ -105,9 +105,9 @@ tags: [investment, nvda, quant, signals, framework]
 
 ## 4. 当前快照的一句话解读（2026-11-05 收盘）
 
-> **趋势破损（低于 200 日线 11.3%）、短期极度超卖（RSI 25.4、布林 z −2.92）、波动率抬升（RV20 45.7%、VIX 28.18）、放量下跌（2.93x ADV20）、但跌幅几乎全部由板块解释（残差 −1.3%）**。这是「系统性去风险 + 拥挤仓位去杠杆」的图形，不是「公司基本面断裂」的图形。按 PEAD 纪律 `WAIT (3/4)`，站稳条件需 11-06 起 3–5 日确认；**超卖不是买入信号**。
+> **趋势破损（低于 200 日线 11.3%）、短期极度超卖（RSI 25.4、布林 z −2.92）、波动率抬升（RV20 45.7%、VIX 28.18）、放量下跌（2.93x ADV20）、但跌幅几乎全部由板块解释（残差 −1.3%）**。这是「系统性去风险 + [[investment-knowledge-base#拥挤交易|拥挤仓位]]去杠杆」的图形，不是「公司基本面断裂」的图形。按 PEAD 纪律 `WAIT (3/4)`，站稳条件需 11-06 起 3–5 日确认；**超卖不是买入信号**。
 
-完整 19 行信号面板、5 档历史基准率与事件倒计时见 [[2026-11-06]]（每日简报）。
+完整 19 行信号面板、5 档历史[[investment-knowledge-base#基准率|基准率]]与[[investment-knowledge-base#计划内事件|事件倒计时]]见 [[2026-11-06]]（每日简报）。
 
 ---
 
@@ -115,7 +115,7 @@ tags: [investment, nvda, quant, signals, framework]
 
 - ❌ 不用单一指标给方向；❌ 不用目标均价当预测；❌ 不把盘中价当收盘价；❌ 不用前一日成交量当 ADV；❌ 不在事件当日借隐含波动率选方向；❌ 不把「表态」当「立法」。
 - ✅ 用 **L0 校验 → L5 归因 → L3 定分布宽度 → L4 判可信度 → L1/L2 给背景 → L6 定中期锚** 的顺序。
-- ✅ 每个判断写「什么会证明我错」；✅ 结论保留历史版本便于事后校验；✅ 用严格适当评分规则（Brier / RPS）评估概率预测，见 [[00-Session-Lab]]。
+- ✅ 每个判断写「什么会证明我错」；✅ 结论保留历史版本便于事后校验；✅ 用[[investment-knowledge-base#严格适当评分规则|严格适当评分规则]]（Brier / [[investment-knowledge-base#RPS|RPS]]）评估概率预测，见 [[00-Session-Lab]]。
 - ✅ **回测是证据，不是开仓许可**：本次 walk-forward 的 Deflated Sharpe 仅 0.566（<0.95 不显著），见 [[nvda-backtest-discipline]]。
 
 ---
@@ -124,14 +124,14 @@ tags: [investment, nvda, quant, signals, framework]
 
 | 信号 | 在预测中的作用 |
 |---|---|
-| 历史条件基准率（缺口带 × 波动状态） | 5 档概率分布的**先验**；匹配样本数必须披露（本次 n=143） |
-| 价格 vs 200 日线 / RSI / RV20 | 预注册的方向或收缩倾斜，**固定权重、不拟合近期结果** |
-| 计划内事件（非农 / 财报 / FOMC） | 只**加宽尾部**，不选方向 |
+| 历史[[investment-knowledge-base#条件频率\|条件基准率]]（缺口带 × 波动状态） | 5 档[[investment-knowledge-base#概率分布\|概率分布]]的**先验**；匹配样本数必须披露（本次 n=143） |
+| 价格 vs 200 日线 / RSI / RV20 | [[investment-knowledge-base#预注册\|预注册]]的方向或收缩倾斜，**固定权重、不拟合近期结果** |
+| 计划内事件（[[investment-knowledge-base#非农就业报告\|非农]] / 财报 / [[investment-knowledge-base#FOMC\|FOMC]]） | 只**加宽尾部**，不选方向 |
 | 板块方向 | `follow_sox` 倾斜；经验库 L-001 可覆盖其权重 |
 | VIX / ATR / IV-RV | 分布宽度校验 |
 | 经验库 ACTIVE 规则 | 最后应用，可**覆盖**同名倾斜（不叠加），记录可追溯 |
 
-首期实测输出（2026-11-06 盘前）：`crash 8.4% / down 11.0% / flat 21.3% / up 27.0% / surge 32.4%`，P(涨) 70.0%，E[r] +1.52%；因盘前代理缺口 +2.9%，**隐含 open→close 期望 −1.38%（缺口回吐 / 开盘反转）**。详见 [[2026-11-06-preopen]]。
+首期实测输出（2026-11-06 [[investment-knowledge-base#盘前盘后交易|盘前]]）：`crash 8.4% / down 11.0% / flat 21.3% / up 27.0% / surge 32.4%`，P(涨) 70.0%，E[r] +1.52%；因盘前代理缺口 +2.9%，**隐含 [[investment-knowledge-base#日内收益|open→close]] 期望 −1.38%（缺口回吐 / 开盘反转）**。详见 [[2026-11-06-preopen]]。
 
 ---
 

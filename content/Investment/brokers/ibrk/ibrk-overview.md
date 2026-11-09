@@ -7,17 +7,17 @@ tags: [investment, broker, ibkr]
 
 ## 它是谁
 
-- 全球知名线上券商，母公司 **Nasdaq: IBKR**，标普 500 成分股。
+- 全球知名线上券商，母公司 **Nasdaq: IBKR**，标普 500 [[investment-knowledge-base#指数|成分股]]。
 - 截至 2026 年中：服务 **500 万+** 客户，客户资产 **$900B+**，日均成交超 400 万笔。
-- 覆盖 **170+ 市场**、24 种货币，单一账户可交易股票、ETF、期权、期货、债券、外汇、黄金等。
+- 覆盖 **170+ 市场**、24 种货币，单一账户可交易[[investment-knowledge-base#股票与股权|股票]]、[[investment-knowledge-base#ETF|ETF]]、[[investment-knowledge-base#期权|期权]]、期货、[[investment-knowledge-base#债券|债券]]、外汇、黄金等。
 
 ## 账户计划：Lite vs Pro（关键！）
 
 | 项目 | IBKR Lite | IBKR Pro |
 |---|---|---|
 | 适用人群 | 美国 / 新加坡居民零售 | **全球用户（含中国等非美居民）** |
-| 美股/ETF 佣金 | 免佣金（含 PFOF 订单流付款） | 固定或阶梯，约 $0.005/股起，无 PFOF |
-| 保证金利率 | 基准 + 2.5% | 基准 + 1.5% 起（随额度递减） |
+| 美股/ETF 佣金 | 免佣金（含 [[investment-knowledge-base#订单流付款\|PFOF]] 订单流付款） | 固定或阶梯，约 $0.005/股起，无 PFOF |
+| [[investment-knowledge-base#保证金\|保证金]]利率 | 基准 + 2.5% | 基准 + 1.5% 起（随额度递减） |
 | 现金利息 | 基准 − 1.5% | 基准 − 0.5% |
 | 平台 | Client Portal / Mobile / Desktop | 同上 + **TWS** + API |
 
@@ -25,7 +25,7 @@ tags: [investment, broker, ibkr]
 
 ## 交易平台
 
-- **Client Portal**：网页端，适合新手，下单/看持仓足够。
+- **Client Portal**：网页端，适合新手，下单/看[[investment-knowledge-base#多头与仓位|持仓]]足够。
 - **IBKR Mobile**：手机 App。
 - **IBKR Desktop**：新一代桌面端。
 - **TWS（Trader Workstation）**：专业终端，功能最强，适合盯盘与算法单。
@@ -38,7 +38,7 @@ tags: [investment, broker, ibkr]
 
 ## 安全与费用
 
-- 资产受 SIPC 等保护（额度有限，详见官网披露）。
+- 资产受 [[investment-knowledge-base#SIPC|SIPC]] 等保护（额度有限，详见官网披露）。
 - 美股实时数据免费；无平台费、无 inactivity fee。
 
 ## 延伸阅读
